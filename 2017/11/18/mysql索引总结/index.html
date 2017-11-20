@@ -5,18 +5,18 @@
   
   <title>mysql索引总结 | 肥胖的猪</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="何为索引">
+  <meta name="description" content="何为索引？1.定义 2.类型 3.优缺点 几个你需要思考的问题1.如果使用了ORM是否还需要关心索引？ 2.索引总是最好的解决方案吗？ 3.什么情况下需要索引？ 高性能索引你必须get的几个点1.独立的列 2.索引的选择性 3.多个列做联合索引时列的顺序 4.索引的一些小技巧 一个关于索引的小案例结语">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql索引总结">
 <meta property="og:url" content="http://yoursite.com/2017/11/18/mysql索引总结/index.html">
 <meta property="og:site_name" content="肥胖的猪">
-<meta property="og:description" content="何为索引">
+<meta property="og:description" content="何为索引？1.定义 2.类型 3.优缺点 几个你需要思考的问题1.如果使用了ORM是否还需要关心索引？ 2.索引总是最好的解决方案吗？ 3.什么情况下需要索引？ 高性能索引你必须get的几个点1.独立的列 2.索引的选择性 3.多个列做联合索引时列的顺序 4.索引的一些小技巧 一个关于索引的小案例结语">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-20T07:52:54.623Z">
+<meta property="og:updated_time" content="2017-11-20T08:30:00.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql索引总结">
-<meta name="twitter:description" content="何为索引">
+<meta name="twitter:description" content="何为索引？1.定义 2.类型 3.优缺点 几个你需要思考的问题1.如果使用了ORM是否还需要关心索引？ 2.索引总是最好的解决方案吗？ 3.什么情况下需要索引？ 高性能索引你必须get的几个点1.独立的列 2.索引的选择性 3.多个列做联合索引时列的顺序 4.索引的一些小技巧 一个关于索引的小案例结语">
   
     <link rel="alternative" href="/atom.xml" title="肥胖的猪" type="application/atom+xml">
   
@@ -219,7 +219,7 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
+    <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a><a class="article-category-link" href="/categories/学习笔记/基础知识/">基础知识</a><a class="article-category-link" href="/categories/学习笔记/基础知识/数据库/">数据库</a>
     </div>
 
 
@@ -235,7 +235,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="何为索引"><a href="#何为索引" class="headerlink" title="何为索引"></a>何为索引</h2>
+        <h2 id="何为索引？"><a href="#何为索引？" class="headerlink" title="何为索引？"></a>何为索引？</h2><p><strong>1.定义</strong></p>
+<p><strong>2.类型</strong></p>
+<p><strong>3.优缺点</strong></p>
+<h2 id="几个你需要思考的问题"><a href="#几个你需要思考的问题" class="headerlink" title="几个你需要思考的问题"></a>几个你需要思考的问题</h2><p><strong>1.如果使用了ORM是否还需要关心索引？</strong></p>
+<p><strong>2.索引总是最好的解决方案吗？</strong></p>
+<p><strong>3.什么情况下需要索引？</strong></p>
+<h2 id="高性能索引你必须get的几个点"><a href="#高性能索引你必须get的几个点" class="headerlink" title="高性能索引你必须get的几个点"></a>高性能索引你必须get的几个点</h2><p><strong>1.独立的列</strong></p>
+<p><strong>2.索引的选择性</strong></p>
+<p><strong>3.多个列做联合索引时列的顺序</strong></p>
+<p><strong>4.索引的一些小技巧</strong></p>
+<h2 id="一个关于索引的小案例"><a href="#一个关于索引的小案例" class="headerlink" title="一个关于索引的小案例"></a>一个关于索引的小案例</h2><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2>
       
       
     </div>
@@ -247,7 +257,7 @@
         <p><span>本文标题:</span><a href="/2017/11/18/mysql索引总结/">mysql索引总结</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yzLee 的个人博客">yzLee</a></p>
         <p><span>发布时间:</span>2017年11月18日 - 21时31分</p>
-        <p><span>最后更新:</span>2017年11月20日 - 15时52分</p>
+        <p><span>最后更新:</span>2017年11月20日 - 16时30分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/11/18/mysql索引总结/" title="mysql索引总结">http://yoursite.com/2017/11/18/mysql索引总结/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/11/18/mysql索引总结/　　作者: yzLee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -280,7 +290,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#何为索引"><span class="toc-number">1.</span> <span class="toc-text">何为索引</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#何为索引？"><span class="toc-number">1.</span> <span class="toc-text">何为索引？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#几个你需要思考的问题"><span class="toc-number">2.</span> <span class="toc-text">几个你需要思考的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高性能索引你必须get的几个点"><span class="toc-number">3.</span> <span class="toc-text">高性能索引你必须get的几个点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个关于索引的小案例"><span class="toc-number">4.</span> <span class="toc-text">一个关于索引的小案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">5.</span> <span class="toc-text">结语</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
