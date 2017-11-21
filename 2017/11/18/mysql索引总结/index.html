@@ -5,18 +5,18 @@
   
   <title>mysql索引总结 | 肥胖的猪</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="几个你需要思考的问题如果使用了ORM是否还需要关心索引？ORM工具是能够生成符合逻辑的、合法的查询的。但是ORM工具能够生成的也一般只是简单的查询而已(eg：根据表的主键查询)。而如果是关于利用到索引的查询，如果设计到很多的条件与规则以及顺序，ORM工具是很难生成合理利用索引的查询的。所以即使是用了对象关系映射工具，还">
+  <meta name="description" content="mysql索引总结">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql索引总结">
 <meta property="og:url" content="http://yoursite.com/2017/11/18/mysql索引总结/index.html">
 <meta property="og:site_name" content="肥胖的猪">
-<meta property="og:description" content="几个你需要思考的问题如果使用了ORM是否还需要关心索引？ORM工具是能够生成符合逻辑的、合法的查询的。但是ORM工具能够生成的也一般只是简单的查询而已(eg：根据表的主键查询)。而如果是关于利用到索引的查询，如果设计到很多的条件与规则以及顺序，ORM工具是很难生成合理利用索引的查询的。所以即使是用了对象关系映射工具，还是需要理解索引。 索引总是最好的解决方案吗？索引并不一定是最好的解决方案，只有">
+<meta property="og:description" content="mysql索引总结">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-21T04:03:13.909Z">
+<meta property="og:updated_time" content="2017-11-21T08:31:54.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql索引总结">
-<meta name="twitter:description" content="几个你需要思考的问题如果使用了ORM是否还需要关心索引？ORM工具是能够生成符合逻辑的、合法的查询的。但是ORM工具能够生成的也一般只是简单的查询而已(eg：根据表的主键查询)。而如果是关于利用到索引的查询，如果设计到很多的条件与规则以及顺序，ORM工具是很难生成合理利用索引的查询的。所以即使是用了对象关系映射工具，还是需要理解索引。 索引总是最好的解决方案吗？索引并不一定是最好的解决方案，只有">
+<meta name="twitter:description" content="mysql索引总结">
   
     <link rel="alternative" href="/atom.xml" title="肥胖的猪" type="application/atom+xml">
   
@@ -67,6 +67,8 @@
         </hgroup>
 
         
+        <p class="header-subtitle">趁着年轻带着好奇揣着梦想出发</p>
+        
         
         
             <div id="switch-btn" class="switch-btn">
@@ -111,7 +113,7 @@
                         
                             <li><a href="/">主页</a></li>
                         
-                            <li><a href="/archives/">归档</a></li>
+                            <li><a href="/archives/">文章</a></li>
                         
                             <li><a href="/tags/">标签</a></li>
                         
@@ -169,12 +171,14 @@
               <h1 class="header-author"><a href="/" title="Me">yzLee</a></h1>
             </hgroup>
             
+            <p class="header-subtitle">趁着年轻带着好奇揣着梦想出发</p>
+            
             <nav class="header-menu">
                 <ul>
                 
                     <li><a href="/">主页</a></li>
                 
-                    <li><a href="/archives/">归档</a></li>
+                    <li><a href="/archives/">文章</a></li>
                 
                     <li><a href="/tags/">标签</a></li>
                 
@@ -235,7 +239,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
+        <p>mysql索引总结<br><a id="more"></a>  </p>
 <h2 id="几个你需要思考的问题"><a href="#几个你需要思考的问题" class="headerlink" title="几个你需要思考的问题"></a>几个你需要思考的问题</h2><h3 id="如果使用了ORM是否还需要关心索引？"><a href="#如果使用了ORM是否还需要关心索引？" class="headerlink" title="如果使用了ORM是否还需要关心索引？"></a>如果使用了ORM是否还需要关心索引？</h3><p>ORM工具是能够生成符合逻辑的、合法的查询的。但是ORM工具能够生成的也一般只是简单的查询而已(eg：根据表的主键查询)。而如果是关于利用到索引的查询，如果设计到很多的条件与规则以及顺序，ORM工具是很难生成合理利用索引的查询的。所以即使是用了对象关系映射工具，还是需要理解索引。</p>
 <h3 id="索引总是最好的解决方案吗？"><a href="#索引总是最好的解决方案吗？" class="headerlink" title="索引总是最好的解决方案吗？"></a>索引总是最好的解决方案吗？</h3><p>索引并不一定是最好的解决方案，只有当索引需要的额外工作与压力小于其好处时，才应该使用索引。比如：很小的表，可能索引带来的效果根本就不明显或者还没有全表扫描来的更高效。或者很大的表。索引所占的空间以及动态维护的成本都成倍增长，而且定位单条记录的意义根本就不大。这个时候更应该考虑别的技术（比如分区）。</p>
 <h3 id="使用索引应该注意什么？"><a href="#使用索引应该注意什么？" class="headerlink" title="使用索引应该注意什么？"></a>使用索引应该注意什么？</h3><p>理解索引是如何工作的是很重要的。这样就可以根据你的理解来创建出合适的索引。而不是根据一些经验法则”where、group by、order by后的所有列创建索引”。一定要积极的创建一个合适的索引，如果有些地方有取舍，就要先看能不能有替代策略（比如，允余字段，提前计算，转换sql等）</p>
@@ -268,7 +272,7 @@
         <p><span>本文标题:</span><a href="/2017/11/18/mysql索引总结/">mysql索引总结</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 yzLee 的个人博客">yzLee</a></p>
         <p><span>发布时间:</span>2017年11月18日 - 21时31分</p>
-        <p><span>最后更新:</span>2017年11月21日 - 12时03分</p>
+        <p><span>最后更新:</span>2017年11月21日 - 16时31分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/11/18/mysql索引总结/" title="mysql索引总结">http://yoursite.com/2017/11/18/mysql索引总结/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/11/18/mysql索引总结/　　作者: yzLee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -288,7 +292,7 @@
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Hello World
+          (no title)
         
       </div>
     </a>
@@ -346,7 +350,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/11/20/hello-world/" title="上一篇: Hello World">
+            <a href="/2017/11/20/hello-world/" title="上一篇: ">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -355,7 +359,7 @@
             <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/20/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/mysql索引总结/">mysql索引总结</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/20/hello-world/">hello-world</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/mysql索引总结/">mysql索引总结</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
