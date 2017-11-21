@@ -5,13 +5,16 @@
   
   <title>肥胖的猪</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="趁着年轻带着好奇揣着梦想出发">
+<meta property="og:type" content="website">
 <meta property="og:title" content="肥胖的猪">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="肥胖的猪">
+<meta property="og:description" content="趁着年轻带着好奇揣着梦想出发">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="肥胖的猪">
+<meta name="twitter:description" content="趁着年轻带着好奇揣着梦想出发">
   
     <link rel="alternative" href="/atom.xml" title="肥胖的猪" type="application/atom+xml">
   
@@ -220,7 +223,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+        <a id="more"></a>
+<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
@@ -283,7 +287,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="几个你需要思考的问题"><a href="#几个你需要思考的问题" class="headerlink" title="几个你需要思考的问题"></a>几个你需要思考的问题</h2><h3 id="如果使用了ORM是否还需要关心索引？"><a href="#如果使用了ORM是否还需要关心索引？" class="headerlink" title="如果使用了ORM是否还需要关心索引？"></a>如果使用了ORM是否还需要关心索引？</h3><p>ORM工具是能够生成符合逻辑的、合法的查询的。但是ORM工具能够生成的也一般只是简单的查询而已(eg：根据表的主键查询)。而如果是关于利用到索引的查询，如果设计到很多的条件与规则以及顺序，ORM工具是很难生成合理利用索引的查询的。所以即使是用了对象关系映射工具，还是需要理解索引。</p>
+        <a id="more"></a>
+<h2 id="几个你需要思考的问题"><a href="#几个你需要思考的问题" class="headerlink" title="几个你需要思考的问题"></a>几个你需要思考的问题</h2><h3 id="如果使用了ORM是否还需要关心索引？"><a href="#如果使用了ORM是否还需要关心索引？" class="headerlink" title="如果使用了ORM是否还需要关心索引？"></a>如果使用了ORM是否还需要关心索引？</h3><p>ORM工具是能够生成符合逻辑的、合法的查询的。但是ORM工具能够生成的也一般只是简单的查询而已(eg：根据表的主键查询)。而如果是关于利用到索引的查询，如果设计到很多的条件与规则以及顺序，ORM工具是很难生成合理利用索引的查询的。所以即使是用了对象关系映射工具，还是需要理解索引。</p>
 <h3 id="索引总是最好的解决方案吗？"><a href="#索引总是最好的解决方案吗？" class="headerlink" title="索引总是最好的解决方案吗？"></a>索引总是最好的解决方案吗？</h3><p>索引并不一定是最好的解决方案，只有当索引需要的额外工作与压力小于其好处时，才应该使用索引。比如：很小的表，可能索引带来的效果根本就不明显或者还没有全表扫描来的更高效。或者很大的表。索引所占的空间以及动态维护的成本都成倍增长，而且定位单条记录的意义根本就不大。这个时候更应该考虑别的技术（比如分区）。</p>
 <h3 id="使用索引应该注意什么？"><a href="#使用索引应该注意什么？" class="headerlink" title="使用索引应该注意什么？"></a>使用索引应该注意什么？</h3><p>理解索引是如何工作的是很重要的。这样就可以根据你的理解来创建出合适的索引。而不是根据一些经验法则”where、group by、order by后的所有列创建索引”。一定要积极的创建一个合适的索引，如果有些地方有取舍，就要先看能不能有替代策略（比如，允余字段，提前计算，转换sql等）</p>
 <h2 id="何为索引？"><a href="#何为索引？" class="headerlink" title="何为索引？"></a>何为索引？</h2><h3 id="索引的定义"><a href="#索引的定义" class="headerlink" title="索引的定义"></a>索引的定义</h3><p>索引在mysql中也叫做键（”key”）,是数据库的存储引擎用于快速找到记录的一种数据结构</p>
